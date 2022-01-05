@@ -66,19 +66,9 @@ class Client:
 
             # For calculating sparsity constraints
             flat_sz = flattended.size
-            bits = flattended.size * flattended.itemsize * 8
-            B_j = int(np.floor(0.85 * bits))
-            scaler = MinMaxScaler()
-            Xsc  = flattended.reshape((flat_sz, 1))
-            Xsc = scaler.fit_transform(Xsc)
 
             try:
-                Cg, _ = compressors.sparse_kmeans(
-                        gradient=Xsc,
-                        budget=B_j
-                        )
-                compressed_flat = scaler.inverse_transform(Cg.reshape((flat_sz, 1)))
-                compressed_flat = compressed_flat.flatten()
+                compressed_glat = compressors.baseline(flattended)
             except BaseException as err:
                 print("ERROR")
                 print(f"Unexpected err={err}, type(err)={type(err)}")

@@ -67,7 +67,7 @@ class Client:
             # For calculating sparsity constraints
             flat_sz = flattended.size
             bits = flattended.size * flattended.itemsize * 8
-            B_j = int(np.floor(0.85 * bits))
+            B_j = int(np.floor(0.95 * bits))
             scaler = MinMaxScaler()
             Xsc  = flattended.reshape((flat_sz, 1))
             Xsc = scaler.fit_transform(Xsc)

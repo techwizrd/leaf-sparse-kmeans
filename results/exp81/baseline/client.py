@@ -3,7 +3,6 @@ import warnings
 import time
 import numpy as np
 import compressors
-from sklearn.preprocessing import MinMaxScaler
 
 
 class Client:
@@ -57,32 +56,21 @@ class Client:
         compress_start = time.time()
 
         layers_to_compress = [6]
-        update = np.array(update, dtype=object)
+        update = np.array(update)
         for i in layers_to_compress:
             actual_shape = update[i].shape
             flattended = update[i].flatten()
             before_nonzeros += np.count_nonzero(flattended)
             compressed_flat = flattended
 
-            # For calculating sparsity constraints
+            # For calculating sparsity
             flat_sz = flattended.size
-            bits = flattended.size * flattended.itemsize * 8
-            B_j = int(np.floor(0.85 * bits))
-            scaler = MinMaxScaler()
-            Xsc  = flattended.reshape((flat_sz, 1))
-            Xsc = scaler.fit_transform(Xsc)
 
             try:
-                Cg, _ = compressors.sparse_kmeans(
-                        gradient=Xsc,
-                        budget=B_j
-                        )
-                compressed_flat = scaler.inverse_transform(Cg.reshape((flat_sz, 1)))
-                compressed_flat = compressed_flat.flatten()
-            except BaseException as err:
+                compressed_flat = compressors.baseline(flattended)
+            except:
                 print("ERROR")
-                print(f"Unexpected err={err}, type(err)={type(err)}")
-                print(flattended)
+                print(flattened)
                 exit
 
             after_nonzeros += np.count_nonzero(compressed_flat)

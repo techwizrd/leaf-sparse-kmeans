@@ -97,6 +97,10 @@ def main():
     save_path = server.save_model(os.path.join(ckpt_path, '{}.ckpt'.format(args.model)))
     print('Model saved in path: %s' % save_path)
 
+    print(f'Model path: {model_path}')
+    print(f'Model sys metrics: {SYS_METRICS_PATH}')
+    print(f'Model test metrics: {STAT_METRICS_PATH}')
+
     # Close models
     server.close_model()
 

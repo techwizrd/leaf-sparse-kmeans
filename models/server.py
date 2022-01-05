@@ -1,6 +1,12 @@
 import numpy as np
 
-from baseline_constants import BYTES_WRITTEN_KEY, BYTES_READ_KEY, LOCAL_COMPUTATIONS_KEY
+from baseline_constants import (
+        BYTES_WRITTEN_BEFORE_KEY,
+        BYTES_WRITTEN_AFTER_KEY,
+        BYTES_READ_KEY,
+        TRAIN_TIME_SECS_KEY,
+        LOCAL_COMPUTATIONS_KEY
+        )
 
 class Server:
     
@@ -52,15 +58,23 @@ class Server:
         if clients is None:
             clients = self.selected_clients
         sys_metrics = {
-            c.id: {BYTES_WRITTEN_KEY: 0,
+            c.id: {BYTES_WRITTEN_BEFORE_KEY: 0,
+                   BYTES_WRITTEN_AFTER_KEY: 0,
+                   TRAIN_TIME_SECS_KEY: 0,
                    BYTES_READ_KEY: 0,
                    LOCAL_COMPUTATIONS_KEY: 0} for c in clients}
         for c in clients:
             c.model.set_params(self.model)
-            comp, num_samples, update = c.train(num_epochs, batch_size, minibatch)
+            #comp, num_samples, update = c.train(num_epochs, batch_size, minibatch)
 
-            sys_metrics[c.id][BYTES_READ_KEY] += c.model.size
-            sys_metrics[c.id][BYTES_WRITTEN_KEY] += c.model.size
+            comp, num_samples, before_nonzeros, after_nonzeros, update, train_time_secs = c.train(num_epochs, batch_size, minibatch)
+            
+            sys_metrics[c.id][TRAIN_TIME_SECS_KEY] += train_time_secs
+            #sys_metrics[c.id][BYTES_READ_KEY] += c.model.size
+            #sys_metrics[c.id][BYTES_WRITTEN_KEY] += c.model.size
+            sys_metrics[c.id][BYTES_READ_KEY] += np.count_nonzero(np.array(self.model[6]))
+            sys_metrics[c.id][BYTES_WRITTEN_BEFORE_KEY] += before_nonzeros
+            sys_metrics[c.id][BYTES_WRITTEN_AFTER_KEY] += after_nonzeros
             sys_metrics[c.id][LOCAL_COMPUTATIONS_KEY] = comp
 
             self.updates.append((num_samples, update))

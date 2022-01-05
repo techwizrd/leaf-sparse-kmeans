@@ -9,7 +9,7 @@ MAIN_PARAMS = {
     'femnist': {
         'small': (30, 10, 2),
         'medium': (100, 10, 2),
-        'large': (1000, 20, 5)
+        'large': (2000, 20, 5)
         },
     'shakespeare': {
         'small': (6, 2, 2),
