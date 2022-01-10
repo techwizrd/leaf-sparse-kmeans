@@ -1,0 +1,828 @@
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+WARNING:tensorflow:From main.py:30: The name tf.set_random_seed is deprecated. Please use tf.compat.v1.set_random_seed instead.
+
+############################## celeba.cnn ##############################
+WARNING:tensorflow:From main.py:47: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From main.py:47: The name tf.logging.WARN is deprecated. Please use tf.compat.v1.logging.WARN instead.
+
+WARNING:tensorflow:From main.py:57: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/celeba/cnn.py:20: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/celeba/cnn.py:24: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:Entity <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b68d828>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b68d828>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/celeba/cnn.py:25: batch_normalization (from tensorflow.python.layers.normalization) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.BatchNormalization instead.  In particular, `tf.control_dependencies(tf.GraphKeys.UPDATE_OPS)` should not be used (consult the `tf.keras.layers.batch_normalization` documentation).
+WARNING:tensorflow:Entity <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/celeba/cnn.py:26: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:Entity <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b692ac8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b692ac8>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b692ac8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b692ac8>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b692ac8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b692ac8>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Conv.call of <tensorflow.python.layers.convolutional.Conv2D object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method BatchNormalization.call of <tensorflow.python.layers.normalization.BatchNormalization object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:Entity <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b828438>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Pooling2D.call of <tensorflow.python.layers.pooling.MaxPooling2D object at 0x7fec3b828438>>: AttributeError: module 'gast' has no attribute 'Str'
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/celeba/cnn.py:29: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dense instead.
+WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7fec3a3bb710>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7fec3a3bb710>>: AttributeError: module 'gast' has no attribute 'Index'
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/model.py:55: The name tf.train.GradientDescentOptimizer is deprecated. Please use tf.compat.v1.train.GradientDescentOptimizer instead.
+
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/celeba/cnn.py:36: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
+
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/model.py:26: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/model.py:27: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2022-01-09 23:06:08.347884: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-01-09 23:06:08.370753: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3493570000 Hz
+2022-01-09 23:06:08.372109: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x3aab8a0 executing computations on platform Host. Devices:
+2022-01-09 23:06:08.372123: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/utils/tf_utils.py:33: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+
+2022-01-09 23:06:08.400931: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/model.py:35: The name tf.profiler.ProfileOptionBuilder is deprecated. Please use tf.compat.v1.profiler.ProfileOptionBuilder instead.
+
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/model.py:36: The name tf.profiler.profile is deprecated. Please use tf.compat.v1.profiler.profile instead.
+
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/lib/python3.6/site-packages/tensorflow/python/profiler/internal/flops_registry.py:142: tensor_shape_from_node_def_name (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.tensor_shape_from_node_def_name`
+Parsing Inputs...
+Incomplete shape.
+Incomplete shape.
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_peak_bytes             0
+-min_residual_bytes         0
+-min_output_bytes           0
+-min_micros                 0
+-min_accelerator_micros     0
+-min_cpu_micros             0
+-min_params                 0
+-min_float_ops              1
+-min_occurrence             0
+-step                       -1
+-order_by                   float_ops
+-account_type_regexes       .*
+-start_name_regexes         .*
+-trim_name_regexes          
+-show_name_regexes          .*
+-hide_name_regexes          
+-account_displayed_op_only  true
+-select                     float_ops
+-output                     stdout:
+
+==================Model Analysis Report======================
+Incomplete shape.
+Incomplete shape.
+
+Doc:
+scope: The nodes in the model graph are organized by their names, which is hierarchical like filesystem.
+flops: Number of float operations. Note: Please read the implementation for the math behind it.
+
+Profile:
+node name | # float_ops
+_TFProfRoot (--/62.41k flops)
+  conv2d_1/kernel/Initializer/random_uniform (9.22k/18.43k flops)
+    conv2d_1/kernel/Initializer/random_uniform/mul (9.22k/9.22k flops)
+    conv2d_1/kernel/Initializer/random_uniform/sub (1/1 flops)
+  conv2d_2/kernel/Initializer/random_uniform (9.22k/18.43k flops)
+    conv2d_2/kernel/Initializer/random_uniform/mul (9.22k/9.22k flops)
+    conv2d_2/kernel/Initializer/random_uniform/sub (1/1 flops)
+  conv2d_3/kernel/Initializer/random_uniform (9.22k/18.43k flops)
+    conv2d_3/kernel/Initializer/random_uniform/mul (9.22k/9.22k flops)
+    conv2d_3/kernel/Initializer/random_uniform/sub (1/1 flops)
+  dense/kernel/Initializer/random_uniform (2.30k/4.61k flops)
+    dense/kernel/Initializer/random_uniform/mul (2.30k/2.30k flops)
+    dense/kernel/Initializer/random_uniform/sub (1/1 flops)
+  conv2d/kernel/Initializer/random_uniform (864/1.73k flops)
+    conv2d/kernel/Initializer/random_uniform/mul (864/864 flops)
+    conv2d/kernel/Initializer/random_uniform/sub (1/1 flops)
+  batch_normalization/AssignMovingAvg (32/97 flops)
+    batch_normalization/AssignMovingAvg/mul (32/32 flops)
+    batch_normalization/AssignMovingAvg/sub_1 (32/32 flops)
+    batch_normalization/AssignMovingAvg/sub (1/1 flops)
+  batch_normalization/AssignMovingAvg_1 (32/97 flops)
+    batch_normalization/AssignMovingAvg_1/mul (32/32 flops)
+    batch_normalization/AssignMovingAvg_1/sub_1 (32/32 flops)
+    batch_normalization/AssignMovingAvg_1/sub (1/1 flops)
+  batch_normalization_1/AssignMovingAvg (32/97 flops)
+    batch_normalization_1/AssignMovingAvg/mul (32/32 flops)
+    batch_normalization_1/AssignMovingAvg/sub_1 (32/32 flops)
+    batch_normalization_1/AssignMovingAvg/sub (1/1 flops)
+  batch_normalization_1/AssignMovingAvg_1 (32/97 flops)
+    batch_normalization_1/AssignMovingAvg_1/mul (32/32 flops)
+    batch_normalization_1/AssignMovingAvg_1/sub_1 (32/32 flops)
+    batch_normalization_1/AssignMovingAvg_1/sub (1/1 flops)
+  batch_normalization_2/AssignMovingAvg (32/97 flops)
+    batch_normalization_2/AssignMovingAvg/mul (32/32 flops)
+    batch_normalization_2/AssignMovingAvg/sub_1 (32/32 flops)
+    batch_normalization_2/AssignMovingAvg/sub (1/1 flops)
+  batch_normalization_2/AssignMovingAvg_1 (32/97 flops)
+    batch_normalization_2/AssignMovingAvg_1/mul (32/32 flops)
+    batch_normalization_2/AssignMovingAvg_1/sub_1 (32/32 flops)
+    batch_normalization_2/AssignMovingAvg_1/sub (1/1 flops)
+  batch_normalization_3/AssignMovingAvg (32/97 flops)
+    batch_normalization_3/AssignMovingAvg/mul (32/32 flops)
+    batch_normalization_3/AssignMovingAvg/sub_1 (32/32 flops)
+    batch_normalization_3/AssignMovingAvg/sub (1/1 flops)
+  batch_normalization_3/AssignMovingAvg_1 (32/97 flops)
+    batch_normalization_3/AssignMovingAvg_1/mul (32/32 flops)
+    batch_normalization_3/AssignMovingAvg_1/sub_1 (32/32 flops)
+    batch_normalization_3/AssignMovingAvg_1/sub (1/1 flops)
+
+======================End of Report==========================
+Clients in Total: 9343
+--- Random Initialization ---
+WARNING:tensorflow:From /home/vsarkhel/Projects/fedtest/leaf-k/models/model.py:44: Variable.load (from tensorflow.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Prefer Variable.assign which has equivalent behavior in 2.X.
+train_accuracy: 0.539415, 10th percentile: 0.352941, 50th percentile: 0.545455, 90th percentile 0.722222
+train_loss: 0.780399, 10th percentile: 0.569978, 50th percentile: 0.768106, 90th percentile 1.00198
+test_accuracy: 0.537815, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.78589, 10th percentile: 0.334923, 50th percentile: 0.721854, 90th percentile 1.32455
+--- Round 1 of 1000: Training 5 Clients ---
+--- Round 2 of 1000: Training 5 Clients ---
+--- Round 3 of 1000: Training 5 Clients ---
+--- Round 4 of 1000: Training 5 Clients ---
+--- Round 5 of 1000: Training 5 Clients ---
+--- Round 6 of 1000: Training 5 Clients ---
+--- Round 7 of 1000: Training 5 Clients ---
+--- Round 8 of 1000: Training 5 Clients ---
+--- Round 9 of 1000: Training 5 Clients ---
+--- Round 10 of 1000: Training 5 Clients ---
+--- Round 11 of 1000: Training 5 Clients ---
+--- Round 12 of 1000: Training 5 Clients ---
+--- Round 13 of 1000: Training 5 Clients ---
+--- Round 14 of 1000: Training 5 Clients ---
+--- Round 15 of 1000: Training 5 Clients ---
+--- Round 16 of 1000: Training 5 Clients ---
+--- Round 17 of 1000: Training 5 Clients ---
+--- Round 18 of 1000: Training 5 Clients ---
+--- Round 19 of 1000: Training 5 Clients ---
+--- Round 20 of 1000: Training 5 Clients ---
+train_accuracy: 0.516048, 10th percentile: 0.296296, 50th percentile: 0.518519, 90th percentile 0.730769
+train_loss: 1.45147, 10th percentile: 0.575514, 50th percentile: 1.37548, 90th percentile 2.42834
+test_accuracy: 0.517461, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 1.36313, 10th percentile: 0.156094, 50th percentile: 0.967323, 90th percentile 3.10797
+--- Round 21 of 1000: Training 5 Clients ---
+--- Round 22 of 1000: Training 5 Clients ---
+--- Round 23 of 1000: Training 5 Clients ---
+--- Round 24 of 1000: Training 5 Clients ---
+--- Round 25 of 1000: Training 5 Clients ---
+--- Round 26 of 1000: Training 5 Clients ---
+--- Round 27 of 1000: Training 5 Clients ---
+--- Round 28 of 1000: Training 5 Clients ---
+--- Round 29 of 1000: Training 5 Clients ---
+--- Round 30 of 1000: Training 5 Clients ---
+--- Round 31 of 1000: Training 5 Clients ---
+--- Round 32 of 1000: Training 5 Clients ---
+--- Round 33 of 1000: Training 5 Clients ---
+--- Round 34 of 1000: Training 5 Clients ---
+--- Round 35 of 1000: Training 5 Clients ---
+--- Round 36 of 1000: Training 5 Clients ---
+--- Round 37 of 1000: Training 5 Clients ---
+--- Round 38 of 1000: Training 5 Clients ---
+--- Round 39 of 1000: Training 5 Clients ---
+--- Round 40 of 1000: Training 5 Clients ---
+train_accuracy: 0.514797, 10th percentile: 0.222222, 50th percentile: 0.5, 90th percentile 0.785714
+train_loss: 1.94935, 10th percentile: 0.519379, 50th percentile: 1.92491, 90th percentile 3.43023
+test_accuracy: 0.516638, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 1.8917, 10th percentile: 0.0459929, 50th percentile: 1.56495, 90th percentile 4.33947
+--- Round 41 of 1000: Training 5 Clients ---
+--- Round 42 of 1000: Training 5 Clients ---
+--- Round 43 of 1000: Training 5 Clients ---
+--- Round 44 of 1000: Training 5 Clients ---
+--- Round 45 of 1000: Training 5 Clients ---
+--- Round 46 of 1000: Training 5 Clients ---
+--- Round 47 of 1000: Training 5 Clients ---
+--- Round 48 of 1000: Training 5 Clients ---
+--- Round 49 of 1000: Training 5 Clients ---
+--- Round 50 of 1000: Training 5 Clients ---
+--- Round 51 of 1000: Training 5 Clients ---
+--- Round 52 of 1000: Training 5 Clients ---
+--- Round 53 of 1000: Training 5 Clients ---
+--- Round 54 of 1000: Training 5 Clients ---
+--- Round 55 of 1000: Training 5 Clients ---
+--- Round 56 of 1000: Training 5 Clients ---
+--- Round 57 of 1000: Training 5 Clients ---
+--- Round 58 of 1000: Training 5 Clients ---
+--- Round 59 of 1000: Training 5 Clients ---
+--- Round 60 of 1000: Training 5 Clients ---
+train_accuracy: 0.521834, 10th percentile: 0.3, 50th percentile: 0.518519, 90th percentile 0.736842
+train_loss: 1.34317, 10th percentile: 0.581739, 50th percentile: 1.28824, 90th percentile 2.20167
+test_accuracy: 0.517688, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 1.29441, 10th percentile: 0.147262, 50th percentile: 0.98795, 90th percentile 2.85699
+--- Round 61 of 1000: Training 5 Clients ---
+--- Round 62 of 1000: Training 5 Clients ---
+--- Round 63 of 1000: Training 5 Clients ---
+--- Round 64 of 1000: Training 5 Clients ---
+--- Round 65 of 1000: Training 5 Clients ---
+--- Round 66 of 1000: Training 5 Clients ---
+--- Round 67 of 1000: Training 5 Clients ---
+--- Round 68 of 1000: Training 5 Clients ---
+--- Round 69 of 1000: Training 5 Clients ---
+--- Round 70 of 1000: Training 5 Clients ---
+--- Round 71 of 1000: Training 5 Clients ---
+--- Round 72 of 1000: Training 5 Clients ---
+--- Round 73 of 1000: Training 5 Clients ---
+--- Round 74 of 1000: Training 5 Clients ---
+--- Round 75 of 1000: Training 5 Clients ---
+--- Round 76 of 1000: Training 5 Clients ---
+--- Round 77 of 1000: Training 5 Clients ---
+--- Round 78 of 1000: Training 5 Clients ---
+--- Round 79 of 1000: Training 5 Clients ---
+--- Round 80 of 1000: Training 5 Clients ---
+train_accuracy: 0.536768, 10th percentile: 0.37037, 50th percentile: 0.541667, 90th percentile 0.703704
+train_loss: 1.08341, 10th percentile: 0.646553, 50th percentile: 1.01374, 90th percentile 1.62986
+test_accuracy: 0.532001, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 1.08027, 10th percentile: 0.20852, 50th percentile: 0.869037, 90th percentile 2.20876
+--- Round 81 of 1000: Training 5 Clients ---
+--- Round 82 of 1000: Training 5 Clients ---
+--- Round 83 of 1000: Training 5 Clients ---
+--- Round 84 of 1000: Training 5 Clients ---
+--- Round 85 of 1000: Training 5 Clients ---
+--- Round 86 of 1000: Training 5 Clients ---
+--- Round 87 of 1000: Training 5 Clients ---
+--- Round 88 of 1000: Training 5 Clients ---
+--- Round 89 of 1000: Training 5 Clients ---
+--- Round 90 of 1000: Training 5 Clients ---
+--- Round 91 of 1000: Training 5 Clients ---
+--- Round 92 of 1000: Training 5 Clients ---
+--- Round 93 of 1000: Training 5 Clients ---
+--- Round 94 of 1000: Training 5 Clients ---
+--- Round 95 of 1000: Training 5 Clients ---
+--- Round 96 of 1000: Training 5 Clients ---
+--- Round 97 of 1000: Training 5 Clients ---
+--- Round 98 of 1000: Training 5 Clients ---
+--- Round 99 of 1000: Training 5 Clients ---
+--- Round 100 of 1000: Training 5 Clients ---
+train_accuracy: 0.543115, 10th percentile: 0.363636, 50th percentile: 0.555556, 90th percentile 0.736842
+train_loss: 0.984886, 10th percentile: 0.59368, 50th percentile: 0.950999, 90th percentile 1.40326
+test_accuracy: 0.536058, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 1.00462, 10th percentile: 0.20383, 50th percentile: 0.846581, 90th percentile 2.00533
+--- Round 101 of 1000: Training 5 Clients ---
+--- Round 102 of 1000: Training 5 Clients ---
+--- Round 103 of 1000: Training 5 Clients ---
+--- Round 104 of 1000: Training 5 Clients ---
+--- Round 105 of 1000: Training 5 Clients ---
+--- Round 106 of 1000: Training 5 Clients ---
+--- Round 107 of 1000: Training 5 Clients ---
+--- Round 108 of 1000: Training 5 Clients ---
+--- Round 109 of 1000: Training 5 Clients ---
+--- Round 110 of 1000: Training 5 Clients ---
+--- Round 111 of 1000: Training 5 Clients ---
+--- Round 112 of 1000: Training 5 Clients ---
+--- Round 113 of 1000: Training 5 Clients ---
+--- Round 114 of 1000: Training 5 Clients ---
+--- Round 115 of 1000: Training 5 Clients ---
+--- Round 116 of 1000: Training 5 Clients ---
+--- Round 117 of 1000: Training 5 Clients ---
+--- Round 118 of 1000: Training 5 Clients ---
+--- Round 119 of 1000: Training 5 Clients ---
+--- Round 120 of 1000: Training 5 Clients ---
+train_accuracy: 0.544924, 10th percentile: 0.375, 50th percentile: 0.555556, 90th percentile 0.722222
+train_loss: 0.950345, 10th percentile: 0.608498, 50th percentile: 0.911826, 90th percentile 1.34792
+test_accuracy: 0.537132, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.9729, 10th percentile: 0.226945, 50th percentile: 0.811684, 90th percentile 1.9033
+--- Round 121 of 1000: Training 5 Clients ---
+--- Round 122 of 1000: Training 5 Clients ---
+--- Round 123 of 1000: Training 5 Clients ---
+--- Round 124 of 1000: Training 5 Clients ---
+--- Round 125 of 1000: Training 5 Clients ---
+--- Round 126 of 1000: Training 5 Clients ---
+--- Round 127 of 1000: Training 5 Clients ---
+--- Round 128 of 1000: Training 5 Clients ---
+--- Round 129 of 1000: Training 5 Clients ---
+--- Round 130 of 1000: Training 5 Clients ---
+--- Round 131 of 1000: Training 5 Clients ---
+--- Round 132 of 1000: Training 5 Clients ---
+--- Round 133 of 1000: Training 5 Clients ---
+--- Round 134 of 1000: Training 5 Clients ---
+--- Round 135 of 1000: Training 5 Clients ---
+--- Round 136 of 1000: Training 5 Clients ---
+--- Round 137 of 1000: Training 5 Clients ---
+--- Round 138 of 1000: Training 5 Clients ---
+--- Round 139 of 1000: Training 5 Clients ---
+--- Round 140 of 1000: Training 5 Clients ---
+train_accuracy: 0.542406, 10th percentile: 0.37037, 50th percentile: 0.555556, 90th percentile 0.714286
+train_loss: 0.941628, 10th percentile: 0.605146, 50th percentile: 0.899308, 90th percentile 1.33037
+test_accuracy: 0.533476, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.96787, 10th percentile: 0.23249, 50th percentile: 0.808793, 90th percentile 1.89037
+--- Round 141 of 1000: Training 5 Clients ---
+--- Round 142 of 1000: Training 5 Clients ---
+--- Round 143 of 1000: Training 5 Clients ---
+--- Round 144 of 1000: Training 5 Clients ---
+--- Round 145 of 1000: Training 5 Clients ---
+--- Round 146 of 1000: Training 5 Clients ---
+--- Round 147 of 1000: Training 5 Clients ---
+--- Round 148 of 1000: Training 5 Clients ---
+--- Round 149 of 1000: Training 5 Clients ---
+--- Round 150 of 1000: Training 5 Clients ---
+--- Round 151 of 1000: Training 5 Clients ---
+--- Round 152 of 1000: Training 5 Clients ---
+--- Round 153 of 1000: Training 5 Clients ---
+--- Round 154 of 1000: Training 5 Clients ---
+--- Round 155 of 1000: Training 5 Clients ---
+--- Round 156 of 1000: Training 5 Clients ---
+--- Round 157 of 1000: Training 5 Clients ---
+--- Round 158 of 1000: Training 5 Clients ---
+--- Round 159 of 1000: Training 5 Clients ---
+--- Round 160 of 1000: Training 5 Clients ---
+train_accuracy: 0.535477, 10th percentile: 0.318182, 50th percentile: 0.538462, 90th percentile 0.75
+train_loss: 0.931863, 10th percentile: 0.52246, 50th percentile: 0.897728, 90th percentile 1.40114
+test_accuracy: 0.53199, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.947997, 10th percentile: 0.227977, 50th percentile: 0.790783, 90th percentile 1.88169
+--- Round 161 of 1000: Training 5 Clients ---
+--- Round 162 of 1000: Training 5 Clients ---
+--- Round 163 of 1000: Training 5 Clients ---
+--- Round 164 of 1000: Training 5 Clients ---
+--- Round 165 of 1000: Training 5 Clients ---
+--- Round 166 of 1000: Training 5 Clients ---
+--- Round 167 of 1000: Training 5 Clients ---
+--- Round 168 of 1000: Training 5 Clients ---
+--- Round 169 of 1000: Training 5 Clients ---
+--- Round 170 of 1000: Training 5 Clients ---
+--- Round 171 of 1000: Training 5 Clients ---
+--- Round 172 of 1000: Training 5 Clients ---
+--- Round 173 of 1000: Training 5 Clients ---
+--- Round 174 of 1000: Training 5 Clients ---
+--- Round 175 of 1000: Training 5 Clients ---
+--- Round 176 of 1000: Training 5 Clients ---
+--- Round 177 of 1000: Training 5 Clients ---
+--- Round 178 of 1000: Training 5 Clients ---
+--- Round 179 of 1000: Training 5 Clients ---
+--- Round 180 of 1000: Training 5 Clients ---
+train_accuracy: 0.549837, 10th percentile: 0.375, 50th percentile: 0.555556, 90th percentile 0.722222
+train_loss: 0.818256, 10th percentile: 0.577093, 50th percentile: 0.795822, 90th percentile 1.09304
+test_accuracy: 0.540579, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.840018, 10th percentile: 0.291955, 50th percentile: 0.734929, 90th percentile 1.5119
+--- Round 181 of 1000: Training 5 Clients ---
+--- Round 182 of 1000: Training 5 Clients ---
+--- Round 183 of 1000: Training 5 Clients ---
+--- Round 184 of 1000: Training 5 Clients ---
+--- Round 185 of 1000: Training 5 Clients ---
+--- Round 186 of 1000: Training 5 Clients ---
+--- Round 187 of 1000: Training 5 Clients ---
+--- Round 188 of 1000: Training 5 Clients ---
+--- Round 189 of 1000: Training 5 Clients ---
+--- Round 190 of 1000: Training 5 Clients ---
+--- Round 191 of 1000: Training 5 Clients ---
+--- Round 192 of 1000: Training 5 Clients ---
+--- Round 193 of 1000: Training 5 Clients ---
+--- Round 194 of 1000: Training 5 Clients ---
+--- Round 195 of 1000: Training 5 Clients ---
+--- Round 196 of 1000: Training 5 Clients ---
+--- Round 197 of 1000: Training 5 Clients ---
+--- Round 198 of 1000: Training 5 Clients ---
+--- Round 199 of 1000: Training 5 Clients ---
+--- Round 200 of 1000: Training 5 Clients ---
+train_accuracy: 0.538898, 10th percentile: 0.333333, 50th percentile: 0.545455, 90th percentile 0.740741
+train_loss: 0.831841, 10th percentile: 0.563382, 50th percentile: 0.811785, 90th percentile 1.11641
+test_accuracy: 0.533049, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.858386, 10th percentile: 0.284868, 50th percentile: 0.746947, 90th percentile 1.54977
+--- Round 201 of 1000: Training 5 Clients ---
+--- Round 202 of 1000: Training 5 Clients ---
+--- Round 203 of 1000: Training 5 Clients ---
+--- Round 204 of 1000: Training 5 Clients ---
+--- Round 205 of 1000: Training 5 Clients ---
+--- Round 206 of 1000: Training 5 Clients ---
+--- Round 207 of 1000: Training 5 Clients ---
+--- Round 208 of 1000: Training 5 Clients ---
+--- Round 209 of 1000: Training 5 Clients ---
+--- Round 210 of 1000: Training 5 Clients ---
+--- Round 211 of 1000: Training 5 Clients ---
+--- Round 212 of 1000: Training 5 Clients ---
+--- Round 213 of 1000: Training 5 Clients ---
+--- Round 214 of 1000: Training 5 Clients ---
+--- Round 215 of 1000: Training 5 Clients ---
+--- Round 216 of 1000: Training 5 Clients ---
+--- Round 217 of 1000: Training 5 Clients ---
+--- Round 218 of 1000: Training 5 Clients ---
+--- Round 219 of 1000: Training 5 Clients ---
+--- Round 220 of 1000: Training 5 Clients ---
+train_accuracy: 0.549727, 10th percentile: 0.37037, 50th percentile: 0.555556, 90th percentile 0.722222
+train_loss: 0.781732, 10th percentile: 0.576991, 50th percentile: 0.768585, 90th percentile 1.00592
+test_accuracy: 0.543059, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.799376, 10th percentile: 0.327031, 50th percentile: 0.719529, 90th percentile 1.36654
+--- Round 221 of 1000: Training 5 Clients ---
+--- Round 222 of 1000: Training 5 Clients ---
+--- Round 223 of 1000: Training 5 Clients ---
+--- Round 224 of 1000: Training 5 Clients ---
+--- Round 225 of 1000: Training 5 Clients ---
+--- Round 226 of 1000: Training 5 Clients ---
+--- Round 227 of 1000: Training 5 Clients ---
+--- Round 228 of 1000: Training 5 Clients ---
+--- Round 229 of 1000: Training 5 Clients ---
+--- Round 230 of 1000: Training 5 Clients ---
+--- Round 231 of 1000: Training 5 Clients ---
+--- Round 232 of 1000: Training 5 Clients ---
+--- Round 233 of 1000: Training 5 Clients ---
+--- Round 234 of 1000: Training 5 Clients ---
+--- Round 235 of 1000: Training 5 Clients ---
+--- Round 236 of 1000: Training 5 Clients ---
+--- Round 237 of 1000: Training 5 Clients ---
+--- Round 238 of 1000: Training 5 Clients ---
+--- Round 239 of 1000: Training 5 Clients ---
+--- Round 240 of 1000: Training 5 Clients ---
+train_accuracy: 0.525564, 10th percentile: 0.272727, 50th percentile: 0.518519, 90th percentile 0.777778
+train_loss: 0.837023, 10th percentile: 0.493152, 50th percentile: 0.818487, 90th percentile 1.18918
+test_accuracy: 0.519642, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.864457, 10th percentile: 0.260472, 50th percentile: 0.768552, 90th percentile 1.57786
+--- Round 241 of 1000: Training 5 Clients ---
+--- Round 242 of 1000: Training 5 Clients ---
+--- Round 243 of 1000: Training 5 Clients ---
+--- Round 244 of 1000: Training 5 Clients ---
+--- Round 245 of 1000: Training 5 Clients ---
+--- Round 246 of 1000: Training 5 Clients ---
+--- Round 247 of 1000: Training 5 Clients ---
+--- Round 248 of 1000: Training 5 Clients ---
+--- Round 249 of 1000: Training 5 Clients ---
+--- Round 250 of 1000: Training 5 Clients ---
+--- Round 251 of 1000: Training 5 Clients ---
+--- Round 252 of 1000: Training 5 Clients ---
+--- Round 253 of 1000: Training 5 Clients ---
+--- Round 254 of 1000: Training 5 Clients ---
+--- Round 255 of 1000: Training 5 Clients ---
+--- Round 256 of 1000: Training 5 Clients ---
+--- Round 257 of 1000: Training 5 Clients ---
+--- Round 258 of 1000: Training 5 Clients ---
+--- Round 259 of 1000: Training 5 Clients ---
+--- Round 260 of 1000: Training 5 Clients ---
+train_accuracy: 0.54922, 10th percentile: 0.37037, 50th percentile: 0.555556, 90th percentile 0.722222
+train_loss: 0.758492, 10th percentile: 0.578435, 50th percentile: 0.745515, 90th percentile 0.955758
+test_accuracy: 0.541132, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.777679, 10th percentile: 0.354871, 50th percentile: 0.711388, 90th percentile 1.27899
+--- Round 261 of 1000: Training 5 Clients ---
+--- Round 262 of 1000: Training 5 Clients ---
+--- Round 263 of 1000: Training 5 Clients ---
+--- Round 264 of 1000: Training 5 Clients ---
+--- Round 265 of 1000: Training 5 Clients ---
+--- Round 266 of 1000: Training 5 Clients ---
+--- Round 267 of 1000: Training 5 Clients ---
+--- Round 268 of 1000: Training 5 Clients ---
+--- Round 269 of 1000: Training 5 Clients ---
+--- Round 270 of 1000: Training 5 Clients ---
+--- Round 271 of 1000: Training 5 Clients ---
+--- Round 272 of 1000: Training 5 Clients ---
+--- Round 273 of 1000: Training 5 Clients ---
+--- Round 274 of 1000: Training 5 Clients ---
+--- Round 275 of 1000: Training 5 Clients ---
+--- Round 276 of 1000: Training 5 Clients ---
+--- Round 277 of 1000: Training 5 Clients ---
+--- Round 278 of 1000: Training 5 Clients ---
+--- Round 279 of 1000: Training 5 Clients ---
+--- Round 280 of 1000: Training 5 Clients ---
+train_accuracy: 0.528512, 10th percentile: 0.277778, 50th percentile: 0.526316, 90th percentile 0.777778
+train_loss: 0.817512, 10th percentile: 0.496896, 50th percentile: 0.801213, 90th percentile 1.14388
+test_accuracy: 0.522882, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.844641, 10th percentile: 0.273526, 50th percentile: 0.75362, 90th percentile 1.50667
+--- Round 281 of 1000: Training 5 Clients ---
+--- Round 282 of 1000: Training 5 Clients ---
+--- Round 283 of 1000: Training 5 Clients ---
+--- Round 284 of 1000: Training 5 Clients ---
+--- Round 285 of 1000: Training 5 Clients ---
+--- Round 286 of 1000: Training 5 Clients ---
+--- Round 287 of 1000: Training 5 Clients ---
+--- Round 288 of 1000: Training 5 Clients ---
+--- Round 289 of 1000: Training 5 Clients ---
+--- Round 290 of 1000: Training 5 Clients ---
+--- Round 291 of 1000: Training 5 Clients ---
+--- Round 292 of 1000: Training 5 Clients ---
+--- Round 293 of 1000: Training 5 Clients ---
+--- Round 294 of 1000: Training 5 Clients ---
+--- Round 295 of 1000: Training 5 Clients ---
+--- Round 296 of 1000: Training 5 Clients ---
+--- Round 297 of 1000: Training 5 Clients ---
+--- Round 298 of 1000: Training 5 Clients ---
+--- Round 299 of 1000: Training 5 Clients ---
+--- Round 300 of 1000: Training 5 Clients ---
+train_accuracy: 0.536519, 10th percentile: 0.28, 50th percentile: 0.541667, 90th percentile 0.777778
+train_loss: 0.820449, 10th percentile: 0.504432, 50th percentile: 0.806785, 90th percentile 1.16613
+test_accuracy: 0.533182, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.82959, 10th percentile: 0.280786, 50th percentile: 0.741344, 90th percentile 1.4915
+--- Round 301 of 1000: Training 5 Clients ---
+--- Round 302 of 1000: Training 5 Clients ---
+--- Round 303 of 1000: Training 5 Clients ---
+--- Round 304 of 1000: Training 5 Clients ---
+--- Round 305 of 1000: Training 5 Clients ---
+--- Round 306 of 1000: Training 5 Clients ---
+--- Round 307 of 1000: Training 5 Clients ---
+--- Round 308 of 1000: Training 5 Clients ---
+--- Round 309 of 1000: Training 5 Clients ---
+--- Round 310 of 1000: Training 5 Clients ---
+--- Round 311 of 1000: Training 5 Clients ---
+--- Round 312 of 1000: Training 5 Clients ---
+--- Round 313 of 1000: Training 5 Clients ---
+--- Round 314 of 1000: Training 5 Clients ---
+--- Round 315 of 1000: Training 5 Clients ---
+--- Round 316 of 1000: Training 5 Clients ---
+--- Round 317 of 1000: Training 5 Clients ---
+--- Round 318 of 1000: Training 5 Clients ---
+--- Round 319 of 1000: Training 5 Clients ---
+--- Round 320 of 1000: Training 5 Clients ---
+train_accuracy: 0.535452, 10th percentile: 0.269231, 50th percentile: 0.541667, 90th percentile 0.777778
+train_loss: 0.818387, 10th percentile: 0.485766, 50th percentile: 0.807317, 90th percentile 1.18111
+test_accuracy: 0.533441, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.825845, 10th percentile: 0.27673, 50th percentile: 0.744053, 90th percentile 1.47987
+--- Round 321 of 1000: Training 5 Clients ---
+--- Round 322 of 1000: Training 5 Clients ---
+--- Round 323 of 1000: Training 5 Clients ---
+--- Round 324 of 1000: Training 5 Clients ---
+--- Round 325 of 1000: Training 5 Clients ---
+--- Round 326 of 1000: Training 5 Clients ---
+--- Round 327 of 1000: Training 5 Clients ---
+--- Round 328 of 1000: Training 5 Clients ---
+--- Round 329 of 1000: Training 5 Clients ---
+--- Round 330 of 1000: Training 5 Clients ---
+--- Round 331 of 1000: Training 5 Clients ---
+--- Round 332 of 1000: Training 5 Clients ---
+--- Round 333 of 1000: Training 5 Clients ---
+--- Round 334 of 1000: Training 5 Clients ---
+--- Round 335 of 1000: Training 5 Clients ---
+--- Round 336 of 1000: Training 5 Clients ---
+--- Round 337 of 1000: Training 5 Clients ---
+--- Round 338 of 1000: Training 5 Clients ---
+--- Round 339 of 1000: Training 5 Clients ---
+--- Round 340 of 1000: Training 5 Clients ---
+train_accuracy: 0.54668, 10th percentile: 0.35, 50th percentile: 0.555556, 90th percentile 0.73913
+train_loss: 0.744237, 10th percentile: 0.564172, 50th percentile: 0.733407, 90th percentile 0.940829
+test_accuracy: 0.543591, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.762103, 10th percentile: 0.359711, 50th percentile: 0.701846, 90th percentile 1.23107
+--- Round 341 of 1000: Training 5 Clients ---
+--- Round 342 of 1000: Training 5 Clients ---
+--- Round 343 of 1000: Training 5 Clients ---
+--- Round 344 of 1000: Training 5 Clients ---
+--- Round 345 of 1000: Training 5 Clients ---
+--- Round 346 of 1000: Training 5 Clients ---
+--- Round 347 of 1000: Training 5 Clients ---
+--- Round 348 of 1000: Training 5 Clients ---
+--- Round 349 of 1000: Training 5 Clients ---
+--- Round 350 of 1000: Training 5 Clients ---
+--- Round 351 of 1000: Training 5 Clients ---
+--- Round 352 of 1000: Training 5 Clients ---
+--- Round 353 of 1000: Training 5 Clients ---
+--- Round 354 of 1000: Training 5 Clients ---
+--- Round 355 of 1000: Training 5 Clients ---
+--- Round 356 of 1000: Training 5 Clients ---
+--- Round 357 of 1000: Training 5 Clients ---
+--- Round 358 of 1000: Training 5 Clients ---
+--- Round 359 of 1000: Training 5 Clients ---
+--- Round 360 of 1000: Training 5 Clients ---
+train_accuracy: 0.539773, 10th percentile: 0.294118, 50th percentile: 0.55, 90th percentile 0.777778
+train_loss: 0.765702, 10th percentile: 0.518458, 50th percentile: 0.752766, 90th percentile 1.04079
+test_accuracy: 0.53696, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.779837, 10th percentile: 0.322569, 50th percentile: 0.715571, 90th percentile 1.31478
+--- Round 361 of 1000: Training 5 Clients ---
+--- Round 362 of 1000: Training 5 Clients ---
+--- Round 363 of 1000: Training 5 Clients ---
+--- Round 364 of 1000: Training 5 Clients ---
+--- Round 365 of 1000: Training 5 Clients ---
+--- Round 366 of 1000: Training 5 Clients ---
+--- Round 367 of 1000: Training 5 Clients ---
+--- Round 368 of 1000: Training 5 Clients ---
+--- Round 369 of 1000: Training 5 Clients ---
+--- Round 370 of 1000: Training 5 Clients ---
+--- Round 371 of 1000: Training 5 Clients ---
+--- Round 372 of 1000: Training 5 Clients ---
+--- Round 373 of 1000: Training 5 Clients ---
+--- Round 374 of 1000: Training 5 Clients ---
+--- Round 375 of 1000: Training 5 Clients ---
+--- Round 376 of 1000: Training 5 Clients ---
+--- Round 377 of 1000: Training 5 Clients ---
+--- Round 378 of 1000: Training 5 Clients ---
+--- Round 379 of 1000: Training 5 Clients ---
+--- Round 380 of 1000: Training 5 Clients ---
+train_accuracy: 0.542173, 10th percentile: 0.3125, 50th percentile: 0.55, 90th percentile 0.769231
+train_loss: 0.747636, 10th percentile: 0.534675, 50th percentile: 0.736746, 90th percentile 0.980494
+test_accuracy: 0.53775, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.760432, 10th percentile: 0.349807, 50th percentile: 0.704145, 90th percentile 1.22847
+--- Round 381 of 1000: Training 5 Clients ---
+--- Round 382 of 1000: Training 5 Clients ---
+--- Round 383 of 1000: Training 5 Clients ---
+--- Round 384 of 1000: Training 5 Clients ---
+--- Round 385 of 1000: Training 5 Clients ---
+--- Round 386 of 1000: Training 5 Clients ---
+--- Round 387 of 1000: Training 5 Clients ---
+--- Round 388 of 1000: Training 5 Clients ---
+--- Round 389 of 1000: Training 5 Clients ---
+--- Round 390 of 1000: Training 5 Clients ---
+--- Round 391 of 1000: Training 5 Clients ---
+--- Round 392 of 1000: Training 5 Clients ---
+--- Round 393 of 1000: Training 5 Clients ---
+--- Round 394 of 1000: Training 5 Clients ---
+--- Round 395 of 1000: Training 5 Clients ---
+--- Round 396 of 1000: Training 5 Clients ---
+--- Round 397 of 1000: Training 5 Clients ---
+--- Round 398 of 1000: Training 5 Clients ---
+--- Round 399 of 1000: Training 5 Clients ---
+--- Round 400 of 1000: Training 5 Clients ---
+train_accuracy: 0.548284, 10th percentile: 0.333333, 50th percentile: 0.555556, 90th percentile 0.75
+train_loss: 0.741689, 10th percentile: 0.551499, 50th percentile: 0.732673, 90th percentile 0.935801
+test_accuracy: 0.54331, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.77046, 10th percentile: 0.343923, 50th percentile: 0.705568, 90th percentile 1.26572
+--- Round 401 of 1000: Training 5 Clients ---
+--- Round 402 of 1000: Training 5 Clients ---
+--- Round 403 of 1000: Training 5 Clients ---
+--- Round 404 of 1000: Training 5 Clients ---
+--- Round 405 of 1000: Training 5 Clients ---
+--- Round 406 of 1000: Training 5 Clients ---
+--- Round 407 of 1000: Training 5 Clients ---
+--- Round 408 of 1000: Training 5 Clients ---
+--- Round 409 of 1000: Training 5 Clients ---
+--- Round 410 of 1000: Training 5 Clients ---
+--- Round 411 of 1000: Training 5 Clients ---
+--- Round 412 of 1000: Training 5 Clients ---
+--- Round 413 of 1000: Training 5 Clients ---
+--- Round 414 of 1000: Training 5 Clients ---
+--- Round 415 of 1000: Training 5 Clients ---
+--- Round 416 of 1000: Training 5 Clients ---
+--- Round 417 of 1000: Training 5 Clients ---
+--- Round 418 of 1000: Training 5 Clients ---
+--- Round 419 of 1000: Training 5 Clients ---
+--- Round 420 of 1000: Training 5 Clients ---
+train_accuracy: 0.517203, 10th percentile: 0.263158, 50th percentile: 0.518519, 90th percentile 0.777778
+train_loss: 0.782682, 10th percentile: 0.517627, 50th percentile: 0.768503, 90th percentile 1.05252
+test_accuracy: 0.51689, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.807793, 10th percentile: 0.31601, 50th percentile: 0.744967, 90th percentile 1.36315
+--- Round 421 of 1000: Training 5 Clients ---
+--- Round 422 of 1000: Training 5 Clients ---
+--- Round 423 of 1000: Training 5 Clients ---
+--- Round 424 of 1000: Training 5 Clients ---
+--- Round 425 of 1000: Training 5 Clients ---
+--- Round 426 of 1000: Training 5 Clients ---
+--- Round 427 of 1000: Training 5 Clients ---
+--- Round 428 of 1000: Training 5 Clients ---
+--- Round 429 of 1000: Training 5 Clients ---
+--- Round 430 of 1000: Training 5 Clients ---
+--- Round 431 of 1000: Training 5 Clients ---
+--- Round 432 of 1000: Training 5 Clients ---
+--- Round 433 of 1000: Training 5 Clients ---
+--- Round 434 of 1000: Training 5 Clients ---
+--- Round 435 of 1000: Training 5 Clients ---
+--- Round 436 of 1000: Training 5 Clients ---
+--- Round 437 of 1000: Training 5 Clients ---
+--- Round 438 of 1000: Training 5 Clients ---
+--- Round 439 of 1000: Training 5 Clients ---
+--- Round 440 of 1000: Training 5 Clients ---
+train_accuracy: 0.548085, 10th percentile: 0.363636, 50th percentile: 0.555556, 90th percentile 0.73913
+train_loss: 0.719748, 10th percentile: 0.577695, 50th percentile: 0.713309, 90th percentile 0.869683
+test_accuracy: 0.542148, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.737704, 10th percentile: 0.40454, 50th percentile: 0.692214, 90th percentile 1.11596
+--- Round 441 of 1000: Training 5 Clients ---
+--- Round 442 of 1000: Training 5 Clients ---
+--- Round 443 of 1000: Training 5 Clients ---
+--- Round 444 of 1000: Training 5 Clients ---
+--- Round 445 of 1000: Training 5 Clients ---
+--- Round 446 of 1000: Training 5 Clients ---
+--- Round 447 of 1000: Training 5 Clients ---
+--- Round 448 of 1000: Training 5 Clients ---
+--- Round 449 of 1000: Training 5 Clients ---
+--- Round 450 of 1000: Training 5 Clients ---
+--- Round 451 of 1000: Training 5 Clients ---
+--- Round 452 of 1000: Training 5 Clients ---
+--- Round 453 of 1000: Training 5 Clients ---
+--- Round 454 of 1000: Training 5 Clients ---
+--- Round 455 of 1000: Training 5 Clients ---
+--- Round 456 of 1000: Training 5 Clients ---
+--- Round 457 of 1000: Training 5 Clients ---
+--- Round 458 of 1000: Training 5 Clients ---
+--- Round 459 of 1000: Training 5 Clients ---
+--- Round 460 of 1000: Training 5 Clients ---
+train_accuracy: 0.545705, 10th percentile: 0.357143, 50th percentile: 0.555556, 90th percentile 0.740741
+train_loss: 0.722713, 10th percentile: 0.574698, 50th percentile: 0.715308, 90th percentile 0.875237
+test_accuracy: 0.537019, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.752953, 10th percentile: 0.3852, 50th percentile: 0.698904, 90th percentile 1.16966
+--- Round 461 of 1000: Training 5 Clients ---
+--- Round 462 of 1000: Training 5 Clients ---
+--- Round 463 of 1000: Training 5 Clients ---
+--- Round 464 of 1000: Training 5 Clients ---
+--- Round 465 of 1000: Training 5 Clients ---
+--- Round 466 of 1000: Training 5 Clients ---
+--- Round 467 of 1000: Training 5 Clients ---
+--- Round 468 of 1000: Training 5 Clients ---
+--- Round 469 of 1000: Training 5 Clients ---
+--- Round 470 of 1000: Training 5 Clients ---
+--- Round 471 of 1000: Training 5 Clients ---
+--- Round 472 of 1000: Training 5 Clients ---
+--- Round 473 of 1000: Training 5 Clients ---
+--- Round 474 of 1000: Training 5 Clients ---
+--- Round 475 of 1000: Training 5 Clients ---
+--- Round 476 of 1000: Training 5 Clients ---
+--- Round 477 of 1000: Training 5 Clients ---
+--- Round 478 of 1000: Training 5 Clients ---
+--- Round 479 of 1000: Training 5 Clients ---
+--- Round 480 of 1000: Training 5 Clients ---
+train_accuracy: 0.549894, 10th percentile: 0.368421, 50th percentile: 0.555556, 90th percentile 0.75
+train_loss: 0.722191, 10th percentile: 0.572114, 50th percentile: 0.714319, 90th percentile 0.877709
+test_accuracy: 0.541635, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.74828, 10th percentile: 0.388249, 50th percentile: 0.694444, 90th percentile 1.15577
+--- Round 481 of 1000: Training 5 Clients ---
+--- Round 482 of 1000: Training 5 Clients ---
+--- Round 483 of 1000: Training 5 Clients ---
+--- Round 484 of 1000: Training 5 Clients ---
+--- Round 485 of 1000: Training 5 Clients ---
+--- Round 486 of 1000: Training 5 Clients ---
+--- Round 487 of 1000: Training 5 Clients ---
+--- Round 488 of 1000: Training 5 Clients ---
+--- Round 489 of 1000: Training 5 Clients ---
+--- Round 490 of 1000: Training 5 Clients ---
+--- Round 491 of 1000: Training 5 Clients ---
+--- Round 492 of 1000: Training 5 Clients ---
+--- Round 493 of 1000: Training 5 Clients ---
+--- Round 494 of 1000: Training 5 Clients ---
+--- Round 495 of 1000: Training 5 Clients ---
+--- Round 496 of 1000: Training 5 Clients ---
+--- Round 497 of 1000: Training 5 Clients ---
+--- Round 498 of 1000: Training 5 Clients ---
+--- Round 499 of 1000: Training 5 Clients ---
+--- Round 500 of 1000: Training 5 Clients ---
+train_accuracy: 0.533891, 10th percentile: 0.277778, 50th percentile: 0.538462, 90th percentile 0.777778
+train_loss: 0.737103, 10th percentile: 0.53222, 50th percentile: 0.729692, 90th percentile 0.954911
+test_accuracy: 0.529595, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.750866, 10th percentile: 0.378788, 50th percentile: 0.707476, 90th percentile 1.16936
+--- Round 501 of 1000: Training 5 Clients ---
+--- Round 502 of 1000: Training 5 Clients ---
+--- Round 503 of 1000: Training 5 Clients ---
+--- Round 504 of 1000: Training 5 Clients ---
+--- Round 505 of 1000: Training 5 Clients ---
+--- Round 506 of 1000: Training 5 Clients ---
+--- Round 507 of 1000: Training 5 Clients ---
+--- Round 508 of 1000: Training 5 Clients ---
+--- Round 509 of 1000: Training 5 Clients ---
+--- Round 510 of 1000: Training 5 Clients ---
+--- Round 511 of 1000: Training 5 Clients ---
+--- Round 512 of 1000: Training 5 Clients ---
+--- Round 513 of 1000: Training 5 Clients ---
+--- Round 514 of 1000: Training 5 Clients ---
+--- Round 515 of 1000: Training 5 Clients ---
+--- Round 516 of 1000: Training 5 Clients ---
+--- Round 517 of 1000: Training 5 Clients ---
+--- Round 518 of 1000: Training 5 Clients ---
+--- Round 519 of 1000: Training 5 Clients ---
+--- Round 520 of 1000: Training 5 Clients ---
+train_accuracy: 0.536982, 10th percentile: 0.363636, 50th percentile: 0.541667, 90th percentile 0.722222
+train_loss: 0.716173, 10th percentile: 0.59901, 50th percentile: 0.710786, 90th percentile 0.836684
+test_accuracy: 0.530407, 10th percentile: 0, 50th percentile: 0.5, 90th percentile 1
+test_loss: 0.737695, 10th percentile: 0.436934, 50th percentile: 0.701886, 90th percentile 1.07044
+--- Round 521 of 1000: Training 5 Clients ---
+--- Round 522 of 1000: Training 5 Clients ---
+--- Round 523 of 1000: Training 5 Clients ---
+--- Round 524 of 1000: Training 5 Clients ---
+--- Round 525 of 1000: Training 5 Clients ---
+--- Round 526 of 1000: Training 5 Clients ---
+--- Round 527 of 1000: Training 5 Clients ---
+--- Round 528 of 1000: Training 5 Clients ---
+--- Round 529 of 1000: Training 5 Clients ---
+--- Round 530 of 1000: Training 5 Clients ---
+--- Round 531 of 1000: Training 5 Clients ---
+--- Round 532 of 1000: Training 5 Clients ---
+--- Round 533 of 1000: Training 5 Clients ---
+--- Round 534 of 1000: Training 5 Clients ---
+--- Round 535 of 1000: Training 5 Clients ---
+--- Round 536 of 1000: Training 5 Clients ---
+--- Round 537 of 1000: Training 5 Clients ---
+--- Round 538 of 1000: Training 5 Clients ---
+--- Round 539 of 1000: Training 5 Clients ---
+--- Round 540 of 1000: Training 5 Clients ---
+train_accuracy: 0.522429, 10th percentile: 0.185185, 50th percentile: 0.518519, 90th percentile 0.85
+train_loss: 0.837052, 10th percentile: 0.428421, 50th percentile: 0.82793, 90th percentile 1.26612
+                                                                                                                                                                                      
