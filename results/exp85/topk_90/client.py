@@ -2,7 +2,7 @@ import random
 import warnings
 import time
 import numpy as np
-import compressors
+from compressors import TopKCompressor
 
 
 class Client:
@@ -60,7 +60,7 @@ class Client:
         for i in layers_to_compress:
             actual_shape = update[i].shape
             flattened = update[i].flatten()
-            before_nonzeros += np.count_nonzero(flattened)
+            before_nonzeros += TopKCompressor.getsizeof(flattened)
             compressed_flat = flattened
 
             # For calculating sparsity
@@ -69,13 +69,13 @@ class Client:
             k = int(np.ceil((1-space_savings) * flat_sz))
 
             try:
-                compressed_flat = compressors.top_k(g=flattened, k=k)
+                compressed_flat = TopKCompressor.compress(x=flattened, k=k)
             except:
                 print("ERROR")
                 print(flattened)
                 exit
 
-            after_nonzeros += np.count_nonzero(compressed_flat)
+            after_nonzeros += TopKCompressor.getsizeof(flattened)
             update[i] = compressed_flat.reshape(actual_shape)
 
         compress_end = time.time()

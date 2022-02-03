@@ -1,13 +1,17 @@
+#!/usr/bin/env python
+
 import random
 import warnings
 import time
 import numpy as np
-import compressors
-from sklearn.preprocessing import MinMaxScaler
+from compressors import (
+    sparse_ratio_metric,
+    TopKCompressor
+)
 
 
 class Client:
-    
+
     def __init__(self, client_id, group=None, train_data={'x' : [],'y' : []}, eval_data={'x' : [],'y' : []}, model=None):
         self._model = model
         self.id = client_id
@@ -56,37 +60,36 @@ class Client:
         ### Start Compression
         compress_start = time.time()
 
-        layers_to_compress = [6]
-        update = np.array(update, dtype=object)
+        layers_to_compress = [4]
+        layer_lengths = []
+        layer_sparsities = []
+        update = np.array(update)
         for i in layers_to_compress:
             actual_shape = update[i].shape
-            flattended = update[i].flatten()
-            before_nonzeros += np.count_nonzero(flattended)
-            compressed_flat = flattended
+            flattened = update[i].flatten()
+            before_nonzeros += TopKCompressor.getsizeof(flattened)
+            compressed_flat = flattened
 
-            # For calculating sparsity constraints
-            flat_sz = flattended.size
-            bits = flattended.size * flattended.itemsize * 8
-            B_j = int(np.floor(0.85 * bits))
-            scaler = MinMaxScaler()
-            Xsc  = flattended.reshape((flat_sz, 1))
-            Xsc = scaler.fit_transform(Xsc)
+            # For calculating sparsity
+            flat_sz = flattened.size
+            space_savings = 0.10
+            k = int(np.ceil((1-space_savings) * flat_sz))
+
+            layer_lengths.append(flat_sz)
+            layer_sparsities.append(sparse_ratio_metric(flattened))
 
             try:
-                Cg, _ = compressors.sparse_kmeans(
-                        gradient=Xsc,
-                        budget=B_j
-                        )
-                compressed_flat = scaler.inverse_transform(Cg.reshape((flat_sz, 1)))
-                compressed_flat = compressed_flat.flatten()
-            except BaseException as err:
+                compressed_flat = TopKCompressor.compress(x=flattened, k=k)
+            except:
                 print("ERROR")
-                print(f"Unexpected err={err}, type(err)={type(err)}")
-                print(flattended)
+                print(flattened)
                 exit
 
-            after_nonzeros += np.count_nonzero(compressed_flat)
+            after_nonzeros += TopKCompressor.getsizeof(compressed_flat)
             update[i] = compressed_flat.reshape(actual_shape)
+
+            weighted_sparsity = np.average(layer_sparsities,
+                                           weights=layer_lengths)
 
         compress_end = time.time()
         ### End Compression
@@ -94,11 +97,11 @@ class Client:
         compress_time = int(round(compress_end - compress_start))
         train_time_secs = train_time + compress_time
 
-        return comp, num_train_samples, before_nonzeros, after_nonzeros, update, train_time_secs
+        return comp, num_train_samples, before_nonzeros, after_nonzeros, weighted_sparsity, update, train_time_secs
 
     def test(self, set_to_use='test'):
         """Tests self.model on self.test_data.
-        
+
         Args:
             set_to_use. Set to test on. Should be in ['train', 'test'].
         Return:
@@ -144,7 +147,7 @@ class Client:
         if self.train_data is not None:
             train_size = len(self.train_data['y'])
 
-        test_size = 0 
+        test_size = 0
         if self.eval_data is not  None:
             test_size = len(self.eval_data['y'])
         return train_size + test_size

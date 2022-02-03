@@ -1,6 +1,6 @@
 """Configuration file for common models/experiments"""
 
-MAIN_PARAMS = { 
+MAIN_PARAMS = {
     'sent140': {
         'small': (10, 2, 2),
         'medium': (16, 2, 2),
@@ -49,6 +49,7 @@ MODEL_PARAMS = {
 ACCURACY_KEY = 'accuracy'
 BYTES_WRITTEN_BEFORE_KEY = 'bytes_written_before'
 BYTES_WRITTEN_AFTER_KEY = 'bytes_written_after'
+SPARSITY_KEY = 'weighted_sparsity'
 TRAIN_TIME_SECS_KEY = 'train_time_secs'
 BYTES_READ_KEY = 'bytes_read'
 LOCAL_COMPUTATIONS_KEY = 'local_computations'

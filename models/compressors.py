@@ -11,34 +11,216 @@ def mse(A: np.ndarray, B: np.ndarray) -> np.ndarray:
     return (np.linalg.norm(A - B) ** 2) / len(A)
 
 
-def baseline(g: np.ndarray) -> np.ndarray:
-    """Return vector withot compression."""
-    return g
+def sparse_difference_metric(x: np.ndarray) -> np.float64:
+    """Measure the sparsity of a numpy array using the difference between the
+    L1 and L2 norm.
+
+    Parameters
+    ----------
+    x : np.ndarray
+        Numpy array
+
+    Returns
+    -------
+    float64
+        Sparsity of the numpy array
+    """
+    return np.linalg.norm(x, ord=1) - np.linalg.norm(x, ord=2)
+
+
+def sparse_ratio_metric(x: np.ndarray) -> np.float64:
+    """Measure the sparsity of a numpy array using the ratio between the
+    L1 and L2 norm.
+
+    Parameters
+    ----------
+    x : np.ndarray
+        Numpy array
+
+    Returns
+    -------
+    float64
+        Sparsity of the numpy array
+    """
+    return np.linalg.norm(x, ord=1) / np.linalg.norm(x, ord=2)
+
+
+class Compressor:
+
+    """Base class for a compressor."""
+    def compress(g: np.ndarray) -> np.ndarray:
+        """Compress the vector."""
+        pass
+
+    def getsizeof(g: np.ndarray) -> int:
+        """Return the size of the vector in bytes."""
+        # If we implemented a custom type for vectors, we could simply
+        # implement the object's __sizeof__ method and sys.getsizeof would just
+        # work. Alas.
+        pass
+
+
+class BaselineCompressor(Compressor):
+
+    @staticmethod
+    def compress(x: np.ndarray) -> np.ndarray:
+        """Return a numpy array unmodified
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array to return
+
+        Returns
+        -------
+        np.ndarray
+            Original numpy array
+        """
+        return x
+
+    @staticmethod
+    def getsizeof(x: np.ndarray) -> int:
+        """Return the size of the numpy array (treated as sparse COO) in bytes
+
+        Arrays are treated as if they were stored in 1-D `Sparse COO format
+        <https://pytorch.org/docs/stable/sparse.html#sparse-coo-tensors>`_
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array "compressed" with baseline "compressor"
+
+        Returns
+        -------
+        int
+            Size of the numpy array in bytes
+        """
+        return (1 * 8 + x.itemsize) * np.count_nonzero(x)
+
+
+class TopKCompressor(Compressor):
+
+    @staticmethod
+    def compress(x: np.ndarray, k: int = 1) -> np.ndarray:
+        """Compress a numpy array using Top-k compression
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array compressed using Top-k compression
+        k : int
+            Number of entries to retain
+
+        Raises
+        ------
+        AssertionError
+            Number of entries to retain is less than zero or greater than size
+            of numpy array
+
+        Returns
+        -------
+        np.ndarray
+            Compressed numpy array
+        """
+        assert 0 < k < len(x)
+        topk_idxs = np.abs(x).argpartition(k)[k:]
+        Cx = np.zeros_like(x)
+        Cx[topk_idxs] = x[topk_idxs]
+        return Cx
+
+    @staticmethod
+    def getsizeof(x: np.ndarray) -> int:
+        """Return the size of the numpy array (treated as sparse COO) in bytes
+
+        Arrays are treated as if they were stored in 1-D `Sparse COO format
+        <https://pytorch.org/docs/stable/sparse.html#sparse-coo-tensors>`_
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array compressed using Top-k compression
+
+        Returns
+        -------
+        int
+            Size of the numpy array in bytes
+        """
+        return (1 * 8 + x.itemsize) * np.count_nonzero(x)
+
+
+class RandKCompressor(Compressor):
+
+    @staticmethod
+    def compress(x: np.ndarray, k: int, rng = None) -> np.ndarray:
+        """Compress a numpy array using Rand-k compression
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array compressed using Rand-k compression
+        k : int
+            Number of entries to retain
+        rng : np.random.RanomGenerator
+            Random number generator used for selecting elements
+
+        Raises
+        ------
+        AssertionError
+            Number of entries to retain is less than zero or greater than size
+            of numpy array
+
+        Returns
+        -------
+        np.ndarray
+            Compressed numpy array
+        """
+        assert 0 < k < len(x)
+
+        # From numpy 1.17. Improves performance by preventing copy of input under the hood.
+        if rng is None:
+            rng = np.random.default_rng()
+        res = rng.choice(x.size, size=k + 1, replace=False)
+
+        Cx = np.zeros_like(x)
+        Cx[res] = x[res]
+        return Cx
+
+    @staticmethod
+    def getsizeof(x: np.ndarray) -> int:
+        """Return the size of the numpy array (treated as sparse COO) in bytes
+
+        Arrays are treated as if they were stored in 1-D `Sparse COO format
+        <https://pytorch.org/docs/stable/sparse.html#sparse-coo-tensors>`_
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array compressed using Rand-k compression
+
+        Returns
+        -------
+        int
+            Size of the numpy array in bytes
+        """
+        return (1 * 8 + x.itemsize) * np.count_nonzero(x)
+
+
+# Compatibility layer with previous code versions
+def baseline(x: np.ndarray) -> np.ndarray:
+    """Return vector without compression."""
+    return x
 
 
 def topk(x: np.ndarray, k: int = 1) -> np.ndarray:
-    assert 0 < k < len(x)
-    topk_idxs = np.abs(x).argpartition(k)[k:]
-    newx = np.zeros_like(x)
-    newx[topk_idxs] = x[topk_idxs]
-    return newx
+    return TopKCompressor.compress(x, k)
 
 
 #def rand_k(g: np.ndarray, k: int, rng: np.random.Generator = None) -> np.ndarray:
-def rand_k(g: np.ndarray, k: int, rng = None) -> np.ndarray:
+def rand_k(x: np.ndarray, k: int, rng = None) -> np.ndarray:
     """Biased random sparsification.
 
-    Retain k randomly-selected (without replacement) elements of g."""
-    assert 0 < k < len(g)
-
-    # From numpy 1.17. Improves performance by preventing copy of input under the hood.
-    if rng is None:
-        rng = np.random.default_rng()
-    res = rng.choice(g.size, size=k + 1, replace=False)
-
-    Cg = np.zeros_like(g)
-    Cg[res] = g[res]
-    return Cg
+    Retain k randomly-selected (without replacement) elements of x."""
+    return RandKCompressor.compress(x=x, k=k, rng=rng)
 
 
 def unbiased_rand_k(
@@ -98,6 +280,8 @@ def compress_b(
     # at zero that we do not update to act as a sparsifier.
     # TODO: What if this is randomly sampled rather than evenly spread?
     theta = np.linspace(start=0, stop=np.max(g), num=k)
+    # TODO: add a flag to change between even initialization and random
+    # initialization so that I'm not commenting/uncommenting constantly
 
     for i in range(n_iters):
         # Step 2: Compute cluster assignments
@@ -126,7 +310,10 @@ def compress_b(
             smallest_xi2 = bottomk(xi2[np.nonzero(xi2)], num_exceeded + 1)
             l[smallest_xi2] = 0
             n_j = np.count_nonzero(l)
-        assert n_j <= budget / b, "sparsity constrain violated"
+        # NOTE: Avoid this assertion because it can cause other issues. Need a
+        # different way of logging situations where the constraint is _still_
+        # violated
+        # assert n_j <= budget / b, "sparsity constrain violated"
 
         # Step 4: Update cluster means
         theta_new = calc_cluster_means(centroids=theta, cluster_assignments=l, data=g)
@@ -170,7 +357,7 @@ def sparse_kmeans(
 
     compression_error = mse(gradient, compressed_gradient)
 
-    return compressed_gradient, compression_error
+    return compressed_gradient, compression_error, b
 
 
 if __name__ == "__main__":

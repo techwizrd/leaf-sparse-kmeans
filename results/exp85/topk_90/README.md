@@ -12,13 +12,20 @@ Top-k sparsification retains only the k items of an array with the largest magni
 The top-k compressor retains the five entries with the largest magnitude.
 ```py
 >>> import numpy as np
->>> import compressors
+>>> from compressors import TopKCompressor
 >>> x = np.random.randint(-100, 100, 10)
 >>> x
 array([-65, -99,  53,  95, -43, -55, -41, -71, -55, -61])
->>> compressors.topk(x, 5)
+>>> Cx = TopKCompressor.compress(x, 5)
+>>> Cx
 array([-65, -99,   0,  95,   0,   0,   0, -71,   0, -61])
+>>> TopKCompressor.getsizeof(x)
+160
+>>> TopKCompressor.getsizeof(Cx)
+80
 ```
+
+Before compression, `x` is 160 bytes. After applying the top-k compressor with `k=5`, the compressed vector `Cx` is 80 bytes.
 
 Running this Experiment
 ---
