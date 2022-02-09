@@ -61,7 +61,7 @@ class Client:
         ### Start Compression
         compress_start = time.time()
 
-        layers_to_compress = [6]
+        layers_to_compress = [4]
         layer_lengths = []
         layer_sparsities = []
         update = np.array(update)

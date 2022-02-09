@@ -11,7 +11,6 @@ def mse(A: np.ndarray, B: np.ndarray) -> np.ndarray:
     return (np.linalg.norm(A - B) ** 2) / len(A)
 
 
-
 class Compressor:
 
     """Base class for a compressor."""
@@ -89,8 +88,10 @@ class TopKCompressor(Compressor):
         np.ndarray
             Compressed numpy array
         """
-        assert 0 < k < len(x)
-        topk_idxs = np.abs(x).argpartition(k)[k:]
+        assert 0 <= k <= len(x)
+        if len(x) == k:
+            return x
+        topk_idxs = np.abs(x).argpartition(k)[:k]
         Cx = np.zeros_like(x)
         Cx[topk_idxs] = x[topk_idxs]
         return Cx
@@ -141,12 +142,16 @@ class RandKCompressor(Compressor):
         np.ndarray
             Compressed numpy array
         """
-        assert 0 < k < len(x)
+        assert 0 <= k <= len(x)
+        if len(x) == 0:
+            return np.zeros_like(x)
+        if len(x) == k:
+            return x
 
         # From numpy 1.17. Improves performance by preventing copy of input under the hood.
         if rng is None:
             rng = np.random.default_rng()
-        res = rng.choice(x.size, size=k + 1, replace=False)
+        res = rng.choice(x.size, size=k, replace=False)
 
         Cx = np.zeros_like(x)
         Cx[res] = x[res]

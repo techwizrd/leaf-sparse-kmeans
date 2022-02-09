@@ -61,7 +61,7 @@ class Client:
         ### Start Compression
         compress_start = time.time()
 
-        layers_to_compress = [6]
+        layers_to_compress = [4]
         layer_lengths = []
         layer_sparsities = []
         update = np.array(update)
@@ -73,7 +73,7 @@ class Client:
 
             # For calculating sparsity
             flat_sz = flattened.size
-            space_savings = 0.90
+            space_savings = 0.80
             k = int(np.ceil((1-space_savings) * flat_sz))
 
             layer_lengths.append(flat_sz)

@@ -11,37 +11,7 @@ def mse(A: np.ndarray, B: np.ndarray) -> np.ndarray:
     return (np.linalg.norm(A - B) ** 2) / len(A)
 
 
-def sparse_difference_metric(x: np.ndarray) -> np.float64:
-    """Measure the sparsity of a numpy array using the difference between the
-    L1 and L2 norm.
-
-    Parameters
-    ----------
-    x : np.ndarray
-        Numpy array
-
-    Returns
-    -------
-    float64
-        Sparsity of the numpy array
-    """
-    return np.linalg.norm(x, ord=1) - np.linalg.norm(x, ord=2)
-
-
-def sparse_ratio_metric(x: np.ndarray) -> np.float64:
-    """Measure the sparsity of a numpy array using the ratio between the
-    L1 and L2 norm.
-
-    Parameters
-    ----------
-    x : np.ndarray
-        Numpy array
-
-    Returns
-    -------
-    float64
-        Sparsity of the numpy array
-    """
+def sparse_ratio_metric(x: np.ndarray):
     return np.linalg.norm(x, ord=1) / np.linalg.norm(x, ord=2)
 
 
@@ -122,11 +92,67 @@ class TopKCompressor(Compressor):
         np.ndarray
             Compressed numpy array
         """
-        assert 0 < k < len(x)
-        topk_idxs = np.abs(x).argpartition(k)[k:]
+        assert 0 <= k <= len(x)
+        if k == 0:
+            return np.zeros_like(x)
+        if k == len(x):
+            return x
+        topk_idxs = np.abs(x).argpartition(-k)[-k:]
         Cx = np.zeros_like(x)
         Cx[topk_idxs] = x[topk_idxs]
         return Cx
+
+    @staticmethod
+    def getsizeof(x: np.ndarray) -> int:
+        """Return the size of the numpy array (treated as sparse COO) in bytes
+
+        Arrays are treated as if they were stored in 1-D `Sparse COO format
+        <https://pytorch.org/docs/stable/sparse.html#sparse-coo-tensors>`_
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array compressed using Top-k compression
+
+        Returns
+        -------
+        int
+            Size of the numpy array in bytes
+        """
+        return (1 * 8 + x.itemsize) * np.count_nonzero(x)
+
+
+class SparseTernaryCompressor(Compressor):
+    """
+    Sparse Ternary Compression (STC) is variation of top-k where the k elements
+    with the greatest magnitude are ternarized and replaced by their mean.
+    """
+
+    @staticmethod
+    def compress(x: np.ndarray, k: int = 1) -> np.ndarray:
+        """Compress a numpy array using Sparse Ternary Compression
+
+
+        Parameters
+        ----------
+        x : np.ndarray
+            Numpy array compressed using Sparse Ternary Compression
+        k : int
+            Number of entries to retain
+
+        Raises
+        ------
+        AssertionError
+            Number of entries to retain is less than zero or greater than size
+            of numpy array
+
+        Returns
+        -------
+        np.ndarray
+            Compressed numpy array
+        """
+        Cx = TopKCompressor.compress(x=x, k=k)
+        return np.sign(Cx) * (np.sum(np.abs(Cx)) / np.count_nonzero(Cx))
 
     @staticmethod
     def getsizeof(x: np.ndarray) -> int:
@@ -174,12 +200,16 @@ class RandKCompressor(Compressor):
         np.ndarray
             Compressed numpy array
         """
-        assert 0 < k < len(x)
+        assert 0 <= k <= len(x)
+        if k == 0:
+            return np.zeros_like(x)
+        if k == len(x):
+            return x
 
         # From numpy 1.17. Improves performance by preventing copy of input under the hood.
         if rng is None:
             rng = np.random.default_rng()
-        res = rng.choice(x.size, size=k + 1, replace=False)
+        res = rng.choice(x.size, size=k, replace=False)
 
         Cx = np.zeros_like(x)
         Cx[res] = x[res]

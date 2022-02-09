@@ -6,8 +6,7 @@ import time
 import numpy as np
 from compressors import (
     sparse_ratio_metric,
-    TopKCompressor,
-    RandKCompressor
+    TopKCompressor
 )
 
 
@@ -61,7 +60,7 @@ class Client:
         ### Start Compression
         compress_start = time.time()
 
-        layers_to_compress = [6]
+        layers_to_compress = [4, 6]
         layer_lengths = []
         layer_sparsities = []
         update = np.array(update)
@@ -73,20 +72,20 @@ class Client:
 
             # For calculating sparsity
             flat_sz = flattened.size
-            space_savings = 0.90
+            space_savings = 0.20
             k = int(np.ceil((1-space_savings) * flat_sz))
 
             layer_lengths.append(flat_sz)
             layer_sparsities.append(sparse_ratio_metric(flattened))
 
             try:
-                compressed_flat = RandKCompressor.compress(x=flattened, k=k)
+                compressed_flat = TopKCompressor.compress(x=flattened, k=k)
             except:
                 print("ERROR")
                 print(flattened)
                 exit
 
-            after_nonzeros += RandKCompressor.getsizeof(compressed_flat)
+            after_nonzeros += TopKCompressor.getsizeof(compressed_flat)
             update[i] = compressed_flat.reshape(actual_shape)
 
             weighted_sparsity = np.average(layer_sparsities,
